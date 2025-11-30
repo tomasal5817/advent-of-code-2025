@@ -1,0 +1,12 @@
+[package]
+name = "advent-of-code-2025"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "day01"
+path = "src/day01.rs"
+
+[dependencies]
+ferris-says = "0.3.1"
+
