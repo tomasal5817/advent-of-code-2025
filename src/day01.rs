@@ -1,4 +1,4 @@
-use std::fs::read_to_string;
+const INPUT: &str = include_str!("../input/day01.txt");
 
 fn part1(input: &str) -> i32 {
     let mut result = 0;
@@ -52,7 +52,6 @@ fn part2(input: &str) -> i32 {
 }
 
 fn main() {
-    let input = read_to_string("../input/day01.txt").unwrap();
-    println!("Part 1: {}", part1(&input));
-    println!("Part 2: {}", part2(&input));
+    println!("Part 1: {}", part1(INPUT));
+    println!("Part 2: {}", part2(INPUT));
 }
