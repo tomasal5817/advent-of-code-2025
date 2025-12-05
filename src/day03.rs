@@ -7,19 +7,19 @@ fn part1(matrix: &Vec<Vec<u64>>) -> u64 {
     for row in matrix {
         let mut jolt1 = 0;
         let mut jolt2 = 0; 
-        let range = row.len() - 1;
-        let mut flag: bool = false;
+        let max_idx = row.len() - 1;
+        let mut use_next_as_second_digit: bool = false;
 
         for (i, val) in row.iter().enumerate() {
-            if jolt1 < *val && i <  range {
+            if jolt1 < *val && i <  max_idx {
                 jolt1 = *val;
-                flag = true;
+                use_next_as_second_digit = true;
             } else if jolt2 < *val {
                 jolt2 = *val;
             }
-            if flag {
+            if use_next_as_second_digit {
                 jolt2 = row[i + 1];
-                flag = false;
+             use_next_as_second_digit = false;
             }
         }
         sum += 10 * jolt1 + jolt2;
@@ -32,11 +32,11 @@ fn part2(matrix: &Vec<Vec<u64>>, battery: usize) -> u64 {
     let mut sum: u64 = 0;
 
     for row in matrix {
-        let n: usize = row.len();
-        assert! (battery <= n, "Row to short: len = {}, battery = {} ", n, battery);
+        let row_len: usize = row.len();
+        assert! (battery <= row_len, "Row to short: len = {}, battery = {} ", row_len, battery);
 
         let mut start_idx: usize = 0;
-        let mut stop_idx: usize = n - battery;
+        let mut stop_idx: usize = row_len - battery;
         let mut total_jolt: u64 = 0;
 
             for i in (0..battery).rev() {
