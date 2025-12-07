@@ -15,6 +15,14 @@ path = "src/day02.rs"
 name = "day03"
 path = "src/day03.rs"
 
+[[bin]]
+name = "day04"
+path = "src/day04.rs"
+
+[[bin]]
+name = "day05"
+path = "src/day05.rs"
+
 [dependencies]
 ferris-says = "0.3.1"
 
